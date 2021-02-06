@@ -1,6 +1,9 @@
 package com.hugo.programmer.top100;
 
-public class TwoSumOne {
+import java.util.HashMap;
+import java.util.Map;
+
+public class TowSumTwo {
     public static void main(String[] args) {
         int[] nums = new int[]{2, 7, 11, 15};
         int target = 9;
@@ -15,10 +18,11 @@ public class TwoSumOne {
         twoSum(nums2, target2);
     }
 
+
     /**
-     * two sum 暴力破解法
-     * 空间复杂度：O(1)
-     * 时间复杂度：O(N^2)
+     * two sum 哈希表
+     * 空间复杂度：O(N)
+     * 时间复杂度：O(N)
      *
      * @param nums
      * @param target
@@ -26,13 +30,17 @@ public class TwoSumOne {
      */
     public static int[] twoSum(int[] nums, int target) {
         int n = nums.length;
+        /**
+         * key：存放遍历的数值
+         * value: 存放索引值
+         */
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; ++i) {
-            for (int j = i + 1; j < n; ++j) {
-                if (nums[i] + nums[j] == target) {
-                    System.out.println("[" + i + "," + j + "]");
-                    return new int[]{i, j};
-                }
+            if (map.containsKey(target - nums[i])) {
+                System.out.println("[" + i + "," + map.get(target - nums[i]) + "]");
+                return new int[]{map.get(target - nums[i]), i};
             }
+            map.put(nums[i], i);
         }
         return new int[0];
     }
