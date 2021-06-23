@@ -1,4 +1,4 @@
-package com.hugo.programmer.top100;
+package com.hugo.programmer.leetcode.hot100;
 
 public class TwoSumOne {
     public static void main(String[] args) {

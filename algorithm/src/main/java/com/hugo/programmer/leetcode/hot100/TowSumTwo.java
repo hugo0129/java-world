@@ -1,4 +1,4 @@
-package com.hugo.programmer.top100;
+package com.hugo.programmer.leetcode.hot100;
 
 import java.util.HashMap;
 import java.util.Map;
